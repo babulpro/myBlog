@@ -1,15 +1,19 @@
-import PlaneLayout from "@/Components/PlaneLayout";
+import Navbar from "@/Components/Navbar";
  
-
-export default function Home() {
+ 
+const getData=async()=>{
+  let category =(await(await fetch('http://localhost:3000/api/category')).json()).data
+  return category
+}   
+export default async function Page() {
+  const data = await getData()
   return (
-     <PlaneLayout>
+ 
           <div className="">
+            <Navbar data={data}/>
             all is wll
           </div>
            
-
-     </PlaneLayout>
-     
+ 
   );
 }
